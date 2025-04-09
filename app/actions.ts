@@ -42,13 +42,10 @@ export const signUpAction = async (formData: FormData) => {
 export const googleSignInAction = async () => {
   const supabase = await createClient();
 
-  console.log("Google sign in action");
-  
-
   const { data, error } = await supabase.auth.signInWithOAuth({
     provider: "google",
     options: {
-      redirectTo: "http://localhost:3000/auth/callback", // change to your real callback
+      redirectTo: "https://noteninjaapp.netlify.app/notes",
     },
   });
 
