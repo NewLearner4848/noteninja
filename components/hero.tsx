@@ -15,7 +15,7 @@ export default function Hero() {
         <p className="text-muted-foreground mb-6">Sign up in seconds and start capturing everything that matters.</p>
         <Link
           href="/sign-up"
-          className="inline-block bg-primary text-white font-semibold py-3 px-6 rounded-xl hover:bg-primary/90 transition"
+          className="inline-block bg-primary dark:bg-white dark:text-black text-white font-semibold py-3 px-6 rounded-xl hover:bg-gray-800 dark:hover:bg-gray-100 transition duration-200"
         >
           Get Started — It’s Free
         </Link>
