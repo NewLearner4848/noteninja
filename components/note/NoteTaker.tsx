@@ -221,21 +221,22 @@ export default function NoteTakerWithTipTap({
   }
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 px-2 pb-4">
       <div className="flex flex-col gap-4 p-4 bg-card rounded-md shadow-md">
         <div className="flex items-center justify-between">
           <h1 className="text-3xl font-bold">Notes</h1>
           <div className="flex items-center gap-2">
-            <Button variant="outline" onClick={refreshNotes} disabled={loading}>
+            <Button variant="outline" size={'sm'} onClick={refreshNotes} disabled={loading}>
               {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : <RefreshCcw className="h-4 w-4" />}
             </Button>
-            <Button onClick={() => setEditorOpen(true)}>
+            <Button onClick={() => setEditorOpen(true)} size={'sm'} variant="outline">
               Create Note
             </Button>
             <Toggle
               pressed={viewMode === "list"}
               onPressedChange={() => setViewMode(viewMode === "grid" ? "list" : "grid")}
-              variant="outline"
+              variant="outline" size={'sm'}
+              className="hidden sm:block"
             >
               {viewMode === "grid" ? <List size={18} /> : <LayoutGrid size={18} />}
             </Toggle>
