@@ -41,11 +41,12 @@ export const signUpAction = async (formData: FormData) => {
 
 export const googleSignInAction = async () => {
   const supabase = await createClient();
+  const origin = (await headers()).get("origin");
 
   const { data, error } = await supabase.auth.signInWithOAuth({
     provider: "google",
     options: {
-      redirectTo: "https://noteninjaapp.netlify.app/notes",
+      redirectTo: `${origin}/auth/callback`,
     },
   });
 
