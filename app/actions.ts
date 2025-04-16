@@ -9,7 +9,8 @@ export const signUpAction = async (formData: FormData) => {
   const email = formData.get("email")?.toString();
   const password = formData.get("password")?.toString();
   const supabase = await createClient();
-  const origin = (await headers()).get("origin");
+  const fallbackOrigin = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
+  const origin = (headers().get("origin") || fallbackOrigin);
 
   if (!email || !password) {
     return encodedRedirect(
